@@ -43,6 +43,16 @@ const Contact = () => {
       });
   };
 
+  const onButtonClick = () => {
+    const pdfUrl = "solid_state.pdf";
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "/Solid State.pdf"; // specify the filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <motion.div ref={ref} className="contact" variants={variants} initial="initial" whileInView="animate">
 
@@ -100,6 +110,10 @@ const Contact = () => {
           {success && "Success! I'll get back to you soon."}
         </motion.form>
       </div>
+
+      <button onClick={onButtonClick}>
+                    Solid State
+      </button>
 
     </motion.div>
   )
